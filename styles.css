@@ -1,0 +1,158 @@
+body {
+  max-width: 900px;
+  font-family: sans-serif;
+  background-color: whitesmoke;
+  box-sizing: border-box;
+  padding: 0;
+}
+.img-round {
+  display: block;
+  margin: auto;
+  border-radius: 50%;
+  width: 150px;
+}
+.centeredForm {
+  display: block;
+  width: min-content;
+  margin: auto;
+}
+fieldset {
+  background-color: white;
+  box-sizing: border-box;
+  margin: auto;
+  border: 2px dotted lightgray;
+  margin-bottom: 10px;
+}
+.smallLayout {
+  width: 500px;
+}
+.wideLayout {
+  width: 100%;
+}
+.form {
+  text-align: center;
+  display: table;
+  margin: auto;
+  padding: 10px;
+}
+.tablerow {
+  display: table-row;
+  text-align: left;
+}
+label {
+  display: table-cell;
+  padding: 10px;
+  text-align: left;
+}
+.textLeft {
+  text-align: left;
+}
+.textRight {
+  text-align: right;
+}
+input {
+  display: table-cell;
+  padding: 5px;
+}
+.centeredText {
+  display: block;
+  text-align: center;
+}
+.buttonset {
+  /* border: 1px solid grey; */
+  /* display: flex; */
+  /* justify-content: center; */
+  margin: auto;
+  max-width: fit-content;
+  padding: 5px;
+}
+button {
+  padding: 15px;
+  border: none;
+  margin: 3px;
+  background-color: #0f7afe;
+  color: white;
+}
+.goBackButton {
+  background-color: rgb(173, 173, 173);
+}
+hr {
+  border: 1px dashed grey;
+  padding: 0px;
+  margin: 10px 0px;
+}
+.panel {
+  list-style-type: none;
+  background-color: white;
+  border-radius: 7px;
+  border: 2px solid lightgrey;
+  padding: 10px;
+}
+p {
+  margin: 0;
+  padding: 10px;
+  /* border: 1px solid black; */
+}
+li {
+  padding: 10px;
+}
+a {
+  color: #0f7afe;
+  text-decoration: none;
+}
+.red-link {
+  color: firebrick;
+}
+ul > li > a {
+  text-decoration: none;
+  color: black;
+}
+.fullWidth {
+  display: flex;
+  justify-content: space-between;
+}
+.inlineTextfield {
+  padding: 9px;
+  border: 1px solid grey;
+  width: 100%;
+  margin: 0.2em 0em 0em 0em;
+}
+.inlineButton {
+  background-color: rgb(173, 173, 173);
+  padding: 10px 50px;
+  margin: 0.2em 0em 0em 4em;
+}
+.flexed {
+  align-items: flex-start;
+  padding: 20px 0px;
+}
+.card {
+  background-color: white;
+  border: 1px solid grey;
+  margin: 0px 40px;
+  padding: 10px;
+}
+dl {
+  padding: 0px 10px;
+}
+dt {
+  font-weight: bolder;
+}
+textarea {
+  width: 100%;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  height: 150px;
+}
+select {
+  width: 160px;
+  padding: 5px;
+}
+.numberOfMessages {
+  color: white;
+  background-color: #0f7afe;
+  padding: 1px 5px;
+  float: right;
+}
+a:hover{
+  color:darkblue;
+}
