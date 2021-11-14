@@ -30,19 +30,17 @@ fieldset {
   width: 100%;
 }
 .form {
-  text-align: center;
-  display: table;
   margin: auto;
   padding: 10px;
 }
 .tablerow {
-  display: table-row;
-  text-align: left;
+  display: flex;
+  justify-content: center;
 }
 label {
-  display: table-cell;
   padding: 10px;
   text-align: left;
+  min-width: 140px;
 }
 .textLeft {
   text-align: left;
@@ -51,8 +49,9 @@ label {
   text-align: right;
 }
 input {
-  display: table-cell;
   padding: 5px;
+  border: 1.9px solid grey;
+  border-radius: 3px;
 }
 .centeredText {
   display: block;
@@ -155,4 +154,15 @@ select {
 }
 a:hover{
   color:darkblue;
+}
+.align_left{
+  justify-content: left;
+  align-items: center;
+  padding: 5px;
+}
+#jstext{
+  text-align: center;
+  color: grey;
+  font-size: smaller;
+  display: none;
 }
