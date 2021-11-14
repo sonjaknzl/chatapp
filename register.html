@@ -48,6 +48,8 @@
             window.chatCollectionId = "48b90830-5340-4e6b-9926-547d418282c8";
             window.chatServer = "https://online-lectures-cs.thi.de/chat";
 
+            var pcorr = false;
+
             function action() {
                 const uname = document.getElementById("username");
                 const pass1 = document.getElementById("password");
@@ -65,6 +67,8 @@
 
                     element.innerText = "Password must contain at least 8 characeters!";
                     element.style.display = "block";
+                    pcorr = false;
+                    return;
 
                 }
                 else if (pass1.value != pass2.value) {
@@ -73,34 +77,44 @@
 
                     element.innerText = "Passwords do not match!";
                     element.style.display = "block";
+                    pcorr = false;
+                    return;
 
                 }
                 else {
-                    if (uname.value.length < 3) {
-                        console.log("error");
-                        element.innerText = "Username must contain at least 3 characeters!";
-                        uname.style.border = "1.9px solid firebrick";
-                    }
-                    else {
-                        var xmlhttp = new XMLHttpRequest();
-                        xmlhttp.onreadystatechange = function () {
-                            if (xmlhttp.readyState == 4) {
-                                if (xmlhttp.status == 204) {
-                                    console.log("Exists");
-                                    element.innerText = "Username already exists!";
-                                    element.style.display = "block";
-                                    uname.style.border = "1.9px solid firebrick";
-                                    
-                                } else if (xmlhttp.status == 404) {
-                                    console.log("Does not exist");
+                    pcorr = true;
+                }
+                if (uname.value.length < 3) {
+                    console.log("error");
+                    element.innerText = "Username must contain at least 3 characeters!";
+                    uname.style.border = "1.9px solid firebrick";
+                    return;
+                }
+                else {
+                    var xmlhttp = new XMLHttpRequest();
+                    const link = "https://online-lectures-cs.thi.de/chat/48b90830-5340-4e6b-9926-547d418282c8/user/" + uname.value;
+                    xmlhttp.open("GET", link, true);
+
+                    xmlhttp.onreadystatechange = function () {
+                        if (xmlhttp.readyState == 4) {
+                            if (xmlhttp.status == 204) {
+                                console.log("Exists");
+                                element.innerText = "Username already exists!";
+                                element.style.display = "block";
+                                uname.style.border = "1.9px solid firebrick";
+                                ucorr = false;
+                                return;
+
+                            } else if (xmlhttp.status == 404) {
+                                console.log("Does not exist");
+                                if (pcorr) {
                                     document.forms["RegisterForm"].submit();
                                 }
+                                
                             }
-                        };
-                        const link = "https://online-lectures-cs.thi.de/chat/48b90830-5340-4e6b-9926-547d418282c8/user/" + uname.value;
-                        xmlhttp.open("GET", link, true);
-                        xmlhttp.send();
-                    }
+                        }
+                    };
+                    xmlhttp.send();
                 }
             }
         </script>
