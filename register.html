@@ -14,7 +14,7 @@
     <body>
         <img class="img-round" src="./images/user.png" alt="image chat" />
         <h1 class="centeredText">Register yourself</h1>
-        <form action="Register">
+        <form name="RegisterForm" action="friends.html" method="get">
             <fieldset class="smallLayout">
                 <legend>Register</legend>
                 <div class="form">
@@ -24,12 +24,13 @@
                     </p>
                     <p class="tablerow">
                         <label class="textRight" for="password">Password</label>
-                        <input type="text" id="password" name="password" placeholder="Password" />
+                        <input type="password" id="password" name="password" placeholder="Password" />
                     </p>
                     <p class="tablerow">
                         <label class="textRight" for="password2">Cornfirm Password</label>
-                        <input type="text" id="password2" name="password2" placeholder="Confirm Password" />
+                        <input type="password" id="password2" name="password2" placeholder="Confirm Password" />
                     </p>
+                    <p id="jstext">asd</p>
                 </div>
             </fieldset>
         </form>
@@ -37,10 +38,86 @@
             <a href="login.html">
                 <button class="goBackButton">Cancel</button>
             </a>
-            <a href="friends.html">
-                <button>Create Account</button>
-            </a>
+
+
+            <button onclick="action()">Create Account</button>
+
         </div>
+        <script>
+            window.chatToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM2NzA4OTM3fQ.W4b2-B_0DM4Y2qtmOD56pDO9JDmp0Z9d-Eu6aiqxB0w";
+            window.chatCollectionId = "48b90830-5340-4e6b-9926-547d418282c8";
+            window.chatServer = "https://online-lectures-cs.thi.de/chat";
+
+            var pcorr = false;
+
+            function action() {
+                const uname = document.getElementById("username");
+                const pass1 = document.getElementById("password");
+                const pass2 = document.getElementById("password2");
+                const element = document.getElementById("jstext");
+                element.innerText = "";
+
+                pass1.style.border = "1.9px solid grey";
+                pass2.style.border = "1.9px solid grey";
+                uname.style.border = "1.9px solid grey";
+
+                if (pass1.value.length < 8 || pass1.value.length < 8) {
+                    pass1.style.border = "1.9px solid firebrick";
+                    pass2.style.border = "1.9px solid firebrick";
+
+                    element.innerText = "Password must contain at least 8 characeters!";
+                    element.style.display = "block";
+                    pcorr = false;
+                    return;
+
+                }
+                else if (pass1.value != pass2.value) {
+                    pass1.style.border = "1.9px solid firebrick";
+                    pass2.style.border = "1.9px solid firebrick";
+
+                    element.innerText = "Passwords do not match!";
+                    element.style.display = "block";
+                    pcorr = false;
+                    return;
+
+                }
+                else {
+                    pcorr = true;
+                }
+                if (uname.value.length < 3) {
+                    console.log("error");
+                    element.innerText = "Username must contain at least 3 characeters!";
+                    uname.style.border = "1.9px solid firebrick";
+                    return;
+                }
+                else {
+                    var xmlhttp = new XMLHttpRequest();
+                    const link = "https://online-lectures-cs.thi.de/chat/48b90830-5340-4e6b-9926-547d418282c8/user/" + uname.value;
+                    xmlhttp.open("GET", link, true);
+
+                    xmlhttp.onreadystatechange = function () {
+                        if (xmlhttp.readyState == 4) {
+                            if (xmlhttp.status == 204) {
+                                console.log("Exists");
+                                element.innerText = "Username already exists!";
+                                element.style.display = "block";
+                                uname.style.border = "1.9px solid firebrick";
+                                ucorr = false;
+                                return;
+
+                            } else if (xmlhttp.status == 404) {
+                                console.log("Does not exist");
+                                if (pcorr) {
+                                    document.forms["RegisterForm"].submit();
+                                }
+                                
+                            }
+                        }
+                    };
+                    xmlhttp.send();
+                }
+            }
+        </script>
     </body>
 
 </html>
