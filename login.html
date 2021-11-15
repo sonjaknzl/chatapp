@@ -2,35 +2,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="./Sytlesheet.css">
-    <script>src="JavascriptFlo.js"</script>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="./styles.css">
+
 </head>
 
-<body class="login">
-
-    <img src="./Images/chat.png" alt="lol" width="100" class="IM">
-    <h1 class="CHeads">Please sign in</h1>
-
-    <fieldset id="loginfield">
-        <legend>Login</legend>
-        <form class="centered_input">
-            <label for="Username">Username</label>
-            <input placeholder="Username" id="label_distance"> <br>
-            <label for="Password">Password</label>
-            <input placeholder=" Password" id="label_distance2"> <br>
-        </form>
+<body>
+  <img class="img-round" src="./images/chat.png" alt="image chat" />
+  <h1 class="centeredText">Please sign in</h1>
+  <form action="Login">
+    <fieldset class="smallLayout">
+      <legend>Login</legend>
+      <div class="form">
+        <p class="tablerow">
+          <label class="textRight" for="username">Username </label>
+          <input type="text" id="username" name="username" placeholder="Username" />
+        </p>
+        <p class="tablerow">
+          <label class="textRight" for="password">Password </label>
+          <input type="text" id="password" name="password" placeholder="Password" />
+        </p>
+      </div>
     </fieldset>
-    <br>
-    <div class="buttons">
-        <button class="Lbutton"
-            onclick="window.location.href = 'register.html'">Register</button>
-        <button class="Rbutton"
-            onclick="window.location.href = 'friends.html'">Login</button>
-    </div>
+  </form>
+
+  <div class="buttonset">
+    <a href="register.html">
+      <button class="goBackButton">Register</button>
+    </a>
+    <a href="friends.html">
+      <button id="login" type="submit">Login</button>
+    </a>
+  </div>
+  <script src="script.js"></script>
 </body>
 
 </html>

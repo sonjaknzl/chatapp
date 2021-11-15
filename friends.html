@@ -6,40 +6,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Friendslist</title>
-    <link rel="stylesheet" href="./Sytlesheet.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
-    <h1 class="CHeads">Friends</h1>
-    <div class="buttons">
-        <button class="Lbutton" id="Friends" onclick="window.location.href = 'logout.html'"">Logout</button>
-        <button class=" Rbutton" id="Friends"
-            onclick="window.location.href = 'settings.html'">Settings</button>
+    <div class="wideLayout">
+        <h1>Friends</h1>
+        <a href="logout.html">
+            < Logout</a>
+                <span>|</span>
+                <a href="settings.html">Settings</a>
+                <hr>
+                <ul class="panel">
+                    <li>
+                        <a href="chat.html">Tom
+                            <span class="numberOfMessages">3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Marvin</a>
+                        <span class="numberOfMessages">1</span>
+                    </li>
+                    <li>
+                        <a href="#">Tick</a>
+                    </li>
+                    <li>
+                        <a href="#">Trick</a>
+                    </li>
+                </ul>
+                <hr>
+                <h2>New Requests</h2>
+                <ol>
+                    <li>
+                        <a href="#">Friend request from <strong>Track</strong></a>
+                    </li>
+                </ol>
+                <hr>
+                <form action="">
+                    <div class="fullWidth">
+                        <input class="inlineTextfield" type="text" name="addFriend" id="addFriend"
+                            placeholder="Add Friend to List">
+                        <button class="inlineButton">Add</button>
+                    </div>
+                </form>
     </div>
-    <fieldset id="listfield">
-        <ul id="flist">
-            <li id="ligrey"><a id="linelinks" href=chat.html>Tom</a><span
-                    id="listnumber">3</span></li>
-            <li><a id="linelinks" href=chat.html>Marvin</a><span
-                    id="listnumber2">1</span></li>
-            <li id="ligrey"><a id="linelinks" href=chat.html>Tick</a></li>
-            <li><a id="linelinks" href=chat.html>Trick</a></li>
-        </ul>
-    </fieldset>
-    <hr>
-    <h2 id="NewRequest" >New Request</h1>
-    <ol>
-        <li style="list-style-type:decimal;">
-            <a href=chat.html>Friendrequest from <span
-                    style="font-weight: bold;">Track</span></a>
-        </li>
-    </ol>
-    <hr>
-    <input class="Textfield" placeholder="Search for friend">
-    <button  id="Send"
-        onclick="window.location.href = 'chat.html'">Add</button>
-
-
 </body>
 
 </html>
