@@ -8,7 +8,6 @@ body {
 }
 .section{
   max-width: 900px;
-  
   box-sizing: border-box;
   margin: 50px auto 50px auto;
   padding: 50px; 
@@ -206,4 +205,15 @@ select {
 }
 a:hover{
   color:darkblue;
+}
+.align_left{
+  justify-content: left;
+  align-items: center;
+  padding: 5px;
+}
+#jstext{
+  text-align: center;
+  color: grey;
+  font-size: smaller;
+  display: none;
 }
