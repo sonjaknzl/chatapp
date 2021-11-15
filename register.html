@@ -12,35 +12,39 @@
 <body>
 
     <body>
+        <div class="section">
         <img class="img-round" src="./images/user.png" alt="image chat" />
         <h1 class="centeredText">Register yourself</h1>
         <form action="Register">
             <fieldset class="smallLayout">
                 <legend>Register</legend>
                 <div class="form">
-                    <p class="tablerow">
-                        <label class="textRight" for="username">Username</label>
-                        <input type="text" id="username" name="username" placeholder="Username" />
-                    </p>
-                    <p class="tablerow">
-                        <label class="textRight" for="password">Password</label>
-                        <input type="text" id="password" name="password" placeholder="Password" />
-                    </p>
-                    <p class="tablerow">
-                        <label class="textRight" for="password2">Cornfirm Password</label>
-                        <input type="text" id="password2" name="password2" placeholder="Confirm Password" />
-                    </p>
+
+                    <div class="fieldItem">
+                        <label for='usernameField'>Username</label>
+                        <input class="textfield" type='text' id='usernameField' name='username' placeholder='Username' required><br>
+                    </div>
+                    <div class="fieldItem">
+                        <label for='passwordField'>Password</label>
+                        <input class="textfield" type='text' id='passwordField' name='password' placeholder='Password' required><br>
+                    </div>
+                    <div class="fieldItem">
+                        <label for='passwordField'>Confirm password</label>
+                        <input class="textfield" type='text' id='passwordField' name='password' placeholder='Password' required>
+                    </div>
+
                 </div>
             </fieldset>
         </form>
         <div class="buttonset">
             <a href="login.html">
-                <button class="goBackButton">Cancel</button>
+                <button class="grey">Cancel</button>
             </a>
             <a href="friends.html">
-                <button>Create Account</button>
+                <button class="blue">Create Account</button>
             </a>
         </div>
+    </div>
     </body>
 
 </html>

@@ -10,35 +10,45 @@
 </head>
 
 <body>
-    <div class="centeredForm wideLayout">
+    <div class="wideLayout">
         <form action="">
             <h1>Profile Settings</h1>
             <fieldset>
                 <legend>Base Data</legend>
-                <div class="form">
-                    <p class="tablerow">
-                        <label class="textRight" for="firstName">First Name</label>
-                        <input type="text" id="firstName" placeholder="Your Name" />
-                    </p>
-                    <p class="tablerow">
-                        <label class="textRight" for="lastName">Last Name</label>
-                        <input type="text" id="lastName" placeholder="Your Surname" />
-                    </p>
-                    <p class="tablerow">
-                        <label class="textRight" for="drinkDropdown">Coffee or Tea?</label>
-                        <select name="drinkDropdown" id="drinkDropdown">
-                            <option value="none">Neither nor</option>
-                            <option value="coffee">Coffee</option>
-                            <option value="tea">Tea</option>
-                            <option value="both">Both</option>
+
+
+                <form action="settings.php" method="get">
+
+                   
+                   <div class="itemBox">
+                    <div class="fieldItem">
+                        <label for="firstName">First Name</label>
+                        <input class="textfield" type="text" name="FirstName" id="firstName" placeholder="Your Name">
+                    </div>
+
+                    <div class="fieldItem">
+                        <label for="lastName">Last Name</label>
+                        <input class="textfield" type="text" name="LastName" id="lastName" placeholder="Your Surname">
+                    </div>
+
+                    <div class="fieldItem">
+                        <label for="coffeeOrTea">Coffe or Tea?</label>
+                        <select class="select-wrapper" name="CoffeeOrTea" id="CoffeeOrTea">
+                            <option value="Neither nor">Neither nor</option>
+                            <option value="Coffee">Coffee</option>
+                            <option value="Tee">Tee</option>
                         </select>
-                    </p>
+                    </div>
                 </div>
+
+                </form>
+
             </fieldset>
             <fieldset>
                 <legend>Tell Something About You</legend>
-                <textarea name="comment" id="comment" cols="20" rows="2" placeholder="Leave a comment here"></textarea>
+                <textarea class="commentSection" name="comment" id="comment" cols="30" rows="10" placeholder="Leave a comment here"></textarea>
             </fieldset>
+            
             <fieldset>
                 <legend>Prefered Chat Layout</legend>
                 <p class="tablerow">
@@ -51,12 +61,16 @@
                 </p>
             </fieldset>
         </form>
+
+        <div class="buttonset">
         <a href="friends.html">
-            <button class="goBackButton">Cancel</button>
+            <button class="grey">Cancel</button>
         </a>
+
         <a href="friends.html">
-            <button>Save</button>
+            <button class="blue">Save</button>
         </a>
+    </div>
     </div>
 </body>
 
