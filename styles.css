@@ -1,5 +1,5 @@
 body {
-  max-width: 900px;
+  
   font-family: sans-serif;
   background-color: whitesmoke;
   box-sizing: border-box;
@@ -12,9 +12,11 @@ body {
   width: 150px;
 }
 .centeredForm {
+  max-width: 900px;
   display: block;
   width: min-content;
   margin: auto;
+  align-self: center;
 }
 fieldset {
   background-color: white;
