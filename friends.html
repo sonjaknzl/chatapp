@@ -13,7 +13,7 @@
     <div class="centeredForm wideLayout">
         <h1>Friends</h1>
         <a href="logout.html">
-            < Logout</a>
+            <Logout</a>
                 <span>|</span>
                 <a href="settings.html">Settings</a>
                 <hr>
@@ -42,13 +42,13 @@
                     </li>
                 </ol>
                 <hr>
-                <form action="">
+                <form id="form" action="">
                     <div class="fullWidth">
-                        <input class="inlineTextfield" type="text" name="addFriend" id="addFriend"
+                        <input type="text" class="inlineTextfield" name="addFriend" id="addFriend" list="results"
                             placeholder="Add Friend to List">
+                        <datalist id="results"></datalist>
                         <button id="addButton" class="inlineButton">Add</button>
                     </div>
-                    <div id="text"></div>
                 </form>
     </div>
 </body>
