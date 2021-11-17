@@ -68,7 +68,7 @@
                     element.innerText = "Password must contain at least 8 characeters!";
                     element.style.display = "block";
                     pcorr = false;
-                    return;
+                
 
                 }
                 else if (pass1.value != pass2.value) {
@@ -78,7 +78,7 @@
                     element.innerText = "Passwords do not match!";
                     element.style.display = "block";
                     pcorr = false;
-                    return;
+                    
 
                 }
                 else {
@@ -88,7 +88,7 @@
                     console.log("error");
                     element.innerText = "Username must contain at least 3 characeters!";
                     uname.style.border = "1.9px solid firebrick";
-                    return;
+                    
                 }
                 else {
                     var xmlhttp = new XMLHttpRequest();
