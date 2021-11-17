@@ -1,9 +1,11 @@
-var searchbar = document.getElementById("search");
-var searchreq = document.getElementById("searchbutton");
+var searchbar = document.getElementById("addFriend");
+var searchreq = document.getElementById("addButton");
 
-searchreq.addEventListener("click", request);
+searchbar.addEventListener("click", request);
 
 function request() {
-  searchbar.classList.add("open");
-  var currenttext = searchbar.ariaValueText;
+
+    searchbar.classList.add("open");
+    var currenttext = searchbar.ariaValueText;
+    // console.log(searchbar.classList);
 }
