@@ -20,8 +20,5 @@ xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/351e804e-1e63-4d05-b
 xmlhttp.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM3MTYzMDkzfQ.osyCiLw5DFV4lzTaVDme43m1llZJdnWjlfd-7VNOYrM');
 xmlhttp.send();
 
-searchreq
-
-
 
 
