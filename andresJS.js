@@ -56,12 +56,27 @@ window.setInterval(function() { console.log("Hallo, Welt!");
 
 
 
-var timestamp = 1607110465663
-var date = new Date(timestamp);
 
-console.log("Date: "+date.getDate()+
-          "/"+(date.getMonth()+1)+
-          "/"+date.getFullYear()+
-          " "+date.getHours()+
-          ":"+date.getMinutes()+
-          ":"+date.getSeconds());
+/*
+let xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
+        console.log("done...");
+    }
+};
+xmlhttp.open("POST", "https://online-lectures-cs.thi.de/chat/e50a4ae0-c42b-4fb5-93f3-24a961b1cca8/message", true);
+xmlhttp.setRequestHeader('Content-type', 'application/json');
+// Add token, e. g., from Tom
+xmlhttp.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM3MTk5MDMxfQ.cBHfStPmORIZXQMenda4FIODPY79wvqCvSzmeEtzf9s');
+// Create request data with message and receiver
+
+let msg = document.querySelector("#msgNew").value;
+
+let data = {
+    message: msg,
+    to: "Tom"
+};
+let jsonString = JSON.stringify(data); // Serialize as JSON
+xmlhttp.send(jsonString); // Send JSON-data to server
+
+*/
