@@ -49,6 +49,7 @@
             window.chatServer = "https://online-lectures-cs.thi.de/chat";
 
             var pcorr = false;
+            window.ucorr = false;
 
             function action() {
                 const uname = document.getElementById("username");
@@ -102,13 +103,14 @@
                                 element.innerText = "Username already exists!";
                                 element.style.display = "block";
                                 uname.style.border = "1.9px solid firebrick";
-                                ucorr = false;
+                                
                                 return;
 
                             } else if (xmlhttp.status == 404) {
                                 // console.log("Does not exist");
                                 if (pcorr) {
-                                    document.forms["RegisterForm"].submit();
+                                    window.ucorr = true;
+                                    // document.forms["RegisterForm"].submit();
                                 }
                                 
                             }
@@ -116,6 +118,11 @@
                     };
                     xmlhttp.send();
                 }
+                if(window.ucorr && pcorr){
+                    document.forms["RegisterForm"].submit();
+                }
+
+
             }
         </script>
     </body>
