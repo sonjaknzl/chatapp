@@ -217,3 +217,12 @@ a:hover{
   font-size: smaller;
   display: none;
 }
+#time{
+  color: grey;
+  float: right;
+}
+
+.time{
+  color: grey;
+  float: right;
+}

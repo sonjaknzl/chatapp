@@ -40,11 +40,13 @@ xmlhttp.onreadystatechange = function () {
 };
 
 xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/e50a4ae0-c42b-4fb5-93f3-24a961b1cca8/message/Jerry", true);
+
 // Add token, e. g., from Tom
 xmlhttp.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM3MTk5MDMxfQ.cBHfStPmORIZXQMenda4FIODPY79wvqCvSzmeEtzf9s');
 xmlhttp.send();
 
 window.setInterval(function() { console.log("Hallo, Welt!");
 }, 1000);
+
 
 
