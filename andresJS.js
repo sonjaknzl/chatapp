@@ -8,11 +8,14 @@ var chatUser = "/Jerry";
 getMessages();
 
 function getMessages() {
-    var chatField = document.getElementById("chatField");
+  var chatField = document.getElementById("chatField");
+  // console.log(chatField);
 
-    while (chatField.firstChild) {
-        chatField.removeChild(chatField.firstChild);
-    }
+  while (chatField.hasChildNodes()) {
+    chatField.removeChild(chatField.firstChild);
+    // console.log("hi");
+  }
+  
   var xmlhttp = new XMLHttpRequest();
   // Chat Server URL und Collection ID als Teil der URL
   xmlhttp.onreadystatechange = function () {
@@ -20,6 +23,7 @@ function getMessages() {
       let data = JSON.parse(xmlhttp.responseText);
 
       for (let element of data) {
+
         let pName = document.createElement("p");
         pName.textContent = element.from + ": ";
         chatField.appendChild(pName);
