@@ -1,4 +1,4 @@
-console.log("1");
+// console.log("1");
 var searchbar = document.getElementById("addFriend");
 var searchreq = document.getElementById("addButton");
 
@@ -6,7 +6,7 @@ var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         let data = JSON.parse(xmlhttp.responseText);
-        console.log(data);
+        // console.log(data);
         var List = document.getElementById("results");
         data.forEach(element => {
             var newOption = document.createElement("option");

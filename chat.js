@@ -10,13 +10,20 @@ getMessages();
 function getMessages() {
   var chatField = document.getElementById("chatField");
   // console.log(chatField);
-
   while (chatField.hasChildNodes()) {
     chatField.removeChild(chatField.firstChild);
-    // console.log("hi");
   }
   
   var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open(
+      "GET",
+      "https://online-lectures-cs.thi.de/chat/1297cbf0-c3b0-4ddb-90c0-111f14039884/message/Jerry",
+      true
+    );
+    xmlhttp.setRequestHeader(
+      "Authorization",
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM3MjE5NzIzfQ.hntngevnKuPAGTKkeFwA2xuVIFBeRBNEVDnZv7vnpQE"
+    );
   // Chat Server URL und Collection ID als Teil der URL
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -43,22 +50,9 @@ function getMessages() {
       }
     }
   };
-  xmlhttp.open(
-    "GET",
-    "https://online-lectures-cs.thi.de/chat/1297cbf0-c3b0-4ddb-90c0-111f14039884/message/Jerry",
-    true
-  );
-  // Add token, e. g., from Tom
-  xmlhttp.setRequestHeader(
-    "Authorization",
-    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM3MjE5NzIzfQ.hntngevnKuPAGTKkeFwA2xuVIFBeRBNEVDnZv7vnpQE"
-  );
   xmlhttp.send();
   //   console.log("hi1");
 }
-
-// window.setInterval(function () {
-// }, 1000);
 
 var addButton = document.getElementById("Add");
 addButton.addEventListener("click", sendMessage);

@@ -85,7 +85,7 @@
                     pcorr = true;
                 }
                 if (uname.value.length < 3) {
-                    console.log("error");
+                    // console.log("error");
                     element.innerText = "Username must contain at least 3 characeters!";
                     uname.style.border = "1.9px solid firebrick";
                     
@@ -98,7 +98,7 @@
                     xmlhttp.onreadystatechange = function () {
                         if (xmlhttp.readyState == 4) {
                             if (xmlhttp.status == 204) {
-                                console.log("Exists");
+                                // console.log("Exists");
                                 element.innerText = "Username already exists!";
                                 element.style.display = "block";
                                 uname.style.border = "1.9px solid firebrick";
@@ -106,7 +106,7 @@
                                 return;
 
                             } else if (xmlhttp.status == 404) {
-                                console.log("Does not exist");
+                                // console.log("Does not exist");
                                 if (pcorr) {
                                     document.forms["RegisterForm"].submit();
                                 }
