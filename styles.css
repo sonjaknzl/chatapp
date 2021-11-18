@@ -180,3 +180,6 @@ a:hover{
   color: grey;
   float: right;
 }
+li>a>p:hover{
+  background-color: rgb(235, 235, 235);
+}
