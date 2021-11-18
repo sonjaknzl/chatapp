@@ -15,9 +15,15 @@ xmlhttp.onreadystatechange = function () {
             pName.appendChild(sMessage);
 
             let sTime = document.createElement('span');
-            sTime.textContent = "Datum:"+element.time;
+
+            var timestamp = element.time;
+            var date = new Date(timestamp);
+            sTime.textContent = date.getHours()+":"+date.getMinutes()+":"+date.getSeconds();
             sTime.className = "time";
             pName.appendChild(sTime);
+
+
+ 
 
             /*
             const chatFrom = document.getElementById('name');
@@ -50,3 +56,12 @@ window.setInterval(function() { console.log("Hallo, Welt!");
 
 
 
+var timestamp = 1607110465663
+var date = new Date(timestamp);
+
+console.log("Date: "+date.getDate()+
+          "/"+(date.getMonth()+1)+
+          "/"+date.getFullYear()+
+          " "+date.getHours()+
+          ":"+date.getMinutes()+
+          ":"+date.getSeconds());
