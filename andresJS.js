@@ -1,4 +1,13 @@
 
+
+//User Informationen
+let chatUser = "/Jerry";
+window.chatToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM3MTk5MDMxfQ.cBHfStPmORIZXQMenda4FIODPY79wvqCvSzmeEtzf9s";
+window.chatCollectionId = "e50a4ae0-c42b-4fb5-93f3-24a961b1cca8";
+window.chatServer = "https://online-lectures-cs.thi.de/chat";
+
+
+
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { 
@@ -45,10 +54,11 @@ xmlhttp.onreadystatechange = function () {
     } 
 };
 
-xmlhttp.open("GET", "https://online-lectures-cs.thi.de/chat/e50a4ae0-c42b-4fb5-93f3-24a961b1cca8/message/Jerry", true);
 
-// Add token, e. g., from Tom
-xmlhttp.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM3MTk5MDMxfQ.cBHfStPmORIZXQMenda4FIODPY79wvqCvSzmeEtzf9s');
+// Chat Server URL und Collection ID als Teil der URL
+xmlhttp.open("GET", window.chatServer + "/" + window.chatCollectionId +"/message"+ chatUser, true);
+// Das Token zur Authentifizierung, wenn notwendig 
+xmlhttp.setRequestHeader('Authorization', 'Bearer ' + window.chatToken); 
 xmlhttp.send();
 
 window.setInterval(function() { console.log("Hallo, Welt!");
@@ -57,26 +67,30 @@ window.setInterval(function() { console.log("Hallo, Welt!");
 
 
 
-/*
-let xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function () {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
-        console.log("done...");
-    }
-};
-xmlhttp.open("POST", "https://online-lectures-cs.thi.de/chat/e50a4ae0-c42b-4fb5-93f3-24a961b1cca8/message", true);
-xmlhttp.setRequestHeader('Content-type', 'application/json');
-// Add token, e. g., from Tom
-xmlhttp.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM3MTk5MDMxfQ.cBHfStPmORIZXQMenda4FIODPY79wvqCvSzmeEtzf9s');
-// Create request data with message and receiver
 
-let msg = document.querySelector("#msgNew").value;
 
-let data = {
-    message: msg,
-    to: "Tom"
-};
-let jsonString = JSON.stringify(data); // Serialize as JSON
-xmlhttp.send(jsonString); // Send JSON-data to server
+document.getElementById("msgSend").onclick = function() {myFunction()};
 
-*/
+function myFunction() {
+    let xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
+            console.log("done...");
+        }
+    };
+    xmlhttp.open("POST", "https://online-lectures-cs.thi.de/chat/e50a4ae0-c42b-4fb5-93f3-24a961b1cca8/message", true);
+    xmlhttp.setRequestHeader('Content-type', 'application/json');
+    // Add token, e. g., from Tom
+    xmlhttp.setRequestHeader('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM3MTk5MDMxfQ.cBHfStPmORIZXQMenda4FIODPY79wvqCvSzmeEtzf9s');
+    
+    // Create request data with message and receiver
+    let msg = document.getElementById("msgNew").value;
+    
+    let data = {
+        message: msg,
+        to: "Tom"
+    };
+    let jsonString = JSON.stringify(data); // Serialize as JSON
+    xmlhttp.send(jsonString); // Send JSON-data to server
+}
+
