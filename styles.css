@@ -175,3 +175,13 @@ a:hover{
   width: 100%;
   margin: 0.2em 0em 0em 0em;
 }
+
+#time{
+  color: grey;
+  float: right;
+}
+
+.time{
+  color: grey;
+  float: right;
+}
