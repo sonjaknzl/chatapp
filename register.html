@@ -6,125 +6,131 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <link rel="stylesheet" href="./styles.css">
+    <!-- <link rel="stylesheet" href="./styles.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
+    <img class="w-25 mt-3 p-3 rounded-circle mx-auto d-block" src="./images/user.png" alt="image chat" />
+    <div class="d-flex justify-content-center">
+        <fieldset class="border rounded m-3 p-5">
+            <form name="RegisterForm" action="friends.html" method="get">
+                <h1 class="text-center mb-3">Register yourself</h1>
+                <input class="container mb-3 form-control" type="text" id="username" name="username"
+                    placeholder="Username" />
+                <input class="container mb-3 form-control" type="password" id="password" name="password"
+                    placeholder="Password" />
+                <input class="container mb-3 form-control" type="password" id="password2" name="password2"
+                    placeholder="Confirm Password" />
+                <p id="jstext" class="form-text text-muted text-center" style="font-size: 12px;"></p>
 
-    <body>
-        <img class="img-round" src="./images/user.png" alt="image chat" />
-        <h1 class="centeredText">Register yourself</h1>
-        <form name="RegisterForm" action="friends.html" method="get">
-            <fieldset class="smallLayout">
-                <legend>Register</legend>
-                <div class="form">
-                    <p class="tablerow">
-                        <label class="textRight" for="username">Username</label>
-                        <input type="text" id="username" name="username" placeholder="Username" />
-                    </p>
-                    <p class="tablerow">
-                        <label class="textRight" for="password">Password</label>
-                        <input type="password" id="password" name="password" placeholder="Password" />
-                    </p>
-                    <p class="tablerow">
-                        <label class="textRight" for="password2">Cornfirm Password</label>
-                        <input type="password" id="password2" name="password2" placeholder="Confirm Password" />
-                    </p>
-                    <p id="jstext">asd</p>
-                </div>
-            </fieldset>
-        </form>
-        <div class="buttonset">
-            <a href="login.html">
-                <button class="goBackButton">Cancel</button>
-            </a>
+            </form>
 
+            <div class="container btn-group p-0">
+                <button class="btn btn-secondary">
+                    <a class="text-reset text-decoration-none" href="login.html">Cancel</a>
+                </button>
+                <button class="btn btn-primary" onclick="action()">Create Account</button>
+            </div>
+        </fieldset>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <script>
+        window.chatToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM2NzA4OTM3fQ.W4b2-B_0DM4Y2qtmOD56pDO9JDmp0Z9d-Eu6aiqxB0w";
+        window.chatCollectionId = "48b90830-5340-4e6b-9926-547d418282c8";
+        window.chatServer = "https://online-lectures-cs.thi.de/chat";
 
-            <button onclick="action()">Create Account</button>
+        var pcorr = false;
+        window.ucorr = false;
 
-        </div>
-        <script>
-            window.chatToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM2NzA4OTM3fQ.W4b2-B_0DM4Y2qtmOD56pDO9JDmp0Z9d-Eu6aiqxB0w";
-            window.chatCollectionId = "48b90830-5340-4e6b-9926-547d418282c8";
-            window.chatServer = "https://online-lectures-cs.thi.de/chat";
+        function action() {
+            const uname = document.getElementById("username");
+            const pass1 = document.getElementById("password");
+            const pass2 = document.getElementById("password2");
+            const element = document.getElementById("jstext");
+            element.innerText = "";
 
-            var pcorr = false;
-            window.ucorr = false;
+            pass1.classList.remove("is-invalid");
+            pass2.classList.remove("is-invalid");
+            uname.classList.remove("is-invalid");
 
-            function action() {
-                const uname = document.getElementById("username");
-                const pass1 = document.getElementById("password");
-                const pass2 = document.getElementById("password2");
-                const element = document.getElementById("jstext");
-                element.innerText = "";
+            // pass1.style.border = "1.9px solid grey";
+            // pass2.style.border = "1.9px solid grey";
+            // uname.style.border = "1.9px solid grey";
 
-                pass1.style.border = "1.9px solid grey";
-                pass2.style.border = "1.9px solid grey";
-                uname.style.border = "1.9px solid grey";
+            if (pass1.value.length < 8 || pass1.value.length < 8) {
+                pass1.classList.add("is-invalid");
+                pass2.classList.add("is-invalid");
 
-                if (pass1.value.length < 8 || pass1.value.length < 8) {
-                    pass1.style.border = "1.9px solid firebrick";
-                    pass2.style.border = "1.9px solid firebrick";
-
-                    element.innerText = "Password must contain at least 8 characeters!";
-                    element.style.display = "block";
-                    pcorr = false;
-                
-
-                }
-                else if (pass1.value != pass2.value) {
-                    pass1.style.border = "1.9px solid firebrick";
-                    pass2.style.border = "1.9px solid firebrick";
-
-                    element.innerText = "Passwords do not match!";
-                    element.style.display = "block";
-                    pcorr = false;
-                    
-
-                }
-                else {
-                    pcorr = true;
-                }
-                if (uname.value.length < 3) {
-                    // console.log("error");
-                    element.innerText = "Username must contain at least 3 characeters!";
-                    uname.style.border = "1.9px solid firebrick";
-                    
-                }
-                else {
-                    var xmlhttp = new XMLHttpRequest();
-                    const link = "https://online-lectures-cs.thi.de/chat/48b90830-5340-4e6b-9926-547d418282c8/user/" + uname.value;
-                    xmlhttp.open("GET", link, true);
-
-                    xmlhttp.onreadystatechange = function () {
-                        if (xmlhttp.readyState == 4) {
-                            if (xmlhttp.status == 204) {
-                                // console.log("Exists");
-                                element.innerText = "Username already exists!";
-                                element.style.display = "block";
-                                uname.style.border = "1.9px solid firebrick";
-                                
-                                return;
-
-                            } else if (xmlhttp.status == 404) {
-                                // console.log("Does not exist");
-                                if (pcorr) {
-                                    window.ucorr = true;
-                                    // document.forms["RegisterForm"].submit();
-                                }
-                                
-                            }
-                        }
-                    };
-                    xmlhttp.send();
-                }
-                if(window.ucorr && pcorr){
-                    document.forms["RegisterForm"].submit();
-                }
+                element.innerText = "Password must contain at least 8 characeters!";
+                element.style.display = "block";
+                pcorr = false;
 
 
             }
-        </script>
-    </body>
+            else if (pass1.value != pass2.value) {
+                // pass1.style.border = "1.9px solid firebrick";
+                // pass2.style.border = "1.9px solid firebrick";
+                pass1.classList.add("is-invalid");
+                pass2.classList.add("is-invalid");
+
+                element.innerText = "Passwords do not match!";
+                element.style.display = "block";
+                pcorr = false;
+
+
+            }
+            else {
+                pcorr = true;
+                pass1.classList.add("is-valid");
+                pass2.classList.add("is-valid");
+            }
+            if (uname.value.length < 3) {
+                // console.log("error");
+                element.innerText = "Username must contain at least 3 characeters!";
+                // uname.style.border = "1.9px solid firebrick";
+                uname.classList.add("is-invalid");
+
+            }
+            else {
+                var xmlhttp = new XMLHttpRequest();
+                const link = "https://online-lectures-cs.thi.de/chat/48b90830-5340-4e6b-9926-547d418282c8/user/" + uname.value;
+                xmlhttp.open("GET", link, true);
+
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4) {
+                        if (xmlhttp.status == 204) {
+                            // console.log("Exists");
+                            element.innerText = "Username already exists!";
+                            element.style.display = "block";
+                            // uname.style.border = "1.9px solid firebrick";
+                            uname.classList.add("is-invalid");
+
+                        } else if (xmlhttp.status == 404) {
+                            // console.log("Does not exist");
+                            window.ucorr = true;
+                            uname.classList.add("is-valid");
+                            // document.forms["RegisterForm"].submit();
+
+
+                        }
+                    }
+                };
+                xmlhttp.send();
+            }
+            if (window.ucorr && pcorr) {
+                document.forms["RegisterForm"].submit();
+            }
+
+
+        }
+    </script>
+</body>
 
 </html>
