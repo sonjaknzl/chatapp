@@ -11,50 +11,41 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-sm">
         <h1>Friends</h1>
         <div class="btn-group">
             <a class="btn btn-primary" href="logout.html">Logout</a>
             <a class="btn btn-secondary" href="settings.html">Settings</a>
         </div>
-        <div class="card mt-4" class="row row-cols-2">
+        <div class="container-fluid mt-4" class="row row-cols-2">
             <div class="row row-cols-2">
                 <div class="col-md-4">
                     <div>
-                        <ul class="list-group">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                              Tom
-                              <span class="badge bg-primary rounded-pill">14</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                              Marvin
-                              <span class="badge bg-primary rounded-pill">2</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                              Trick
-                              <span class="badge bg-primary rounded-pill">1</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Track
-                                <span class="badge bg-primary rounded-pill">1</span>
-                              </li>
-                          </ul>
+                        <div class="list-group">
+                            <a href="chat.html" class="list-group-item list-group-item-action">Tom<span class="badge bg-primary rounded-pill">2</span></a>
+                            <a href="chat.html" class="list-group-item list-group-item-action">Marvin<span class="badge bg-primary rounded-pill">4</span></a>
+                            <a href="chat.html" class="list-group-item list-group-item-action">Trick</a>
+                            <a href="chat.html" class="list-group-item list-group-item-action">Track</a>
+                          </div>
                     </div>
                 </div>
                     <div class="col-md-8">
-                        <h2>New Requests</h2>
-                <ol>
-                    <li>
-                        <a href="#">Friend request from <strong>Track</strong></a>
-                    </li>
-                </ol>
-                <hr>
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                              New Requests
+                            </a>
+                          
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                              <li><a class="dropdown-item" href="chat.html">Track</a></li>
+                            </ul>
+                          </div>
+                          <br>
                 <form id="form" action="">
-                    <div class="fullWidth">
-                        <input type="text" class="inlineTextfield" name="addFriend" id="addFriend" list="results"
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="addFriend" id="addFriend" list="results"
                             placeholder="Add Friend to List">
                         <datalist id="results"></datalist>
-                        <button id="addButton" class="inlineButton">Add</button>
+                        <a class="btn btn-primary" href="#">Add</a>
                     </div>
                 </form>
                         </ul>
@@ -62,6 +53,7 @@
             </div>
         </div>
     </div>
+        
 </body>
 
 <script src="friends.js"></script>
