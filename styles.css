@@ -1,16 +1,9 @@
 body {
-  
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 16pt; 
+  margin-top: 50px;
+  font-family: sans-serif;
   background-color: whitesmoke;
-  
-  
-}
-.section{
-  max-width: 900px;
   box-sizing: border-box;
-  margin: 50px auto 50px auto;
-  padding: 50px; 
+  padding: 0;
 }
 .img-round {
   display: block;
@@ -19,9 +12,11 @@ body {
   width: 150px;
 }
 .centeredForm {
+  max-width: 900px;
   display: block;
   width: min-content;
   margin: auto;
+  align-self: center;
 }
 fieldset {
   background-color: white;
@@ -32,69 +27,33 @@ fieldset {
 }
 .smallLayout {
   width: 500px;
-  margin: auto;
-  padding: 20px;
 }
 .wideLayout {
-  margin: 50px;
-
+  width: 100%;
 }
-
-
-.fieldItem{
-  float: right;
-  margin-right: 20px;
-}
-
-.itemBox{
-  width: 400px;
-  align-items: center;
+.form {
   margin: auto;
+  padding: 10px;
 }
-
 .tablerow {
-  display: table-row;
-  text-align: left;
-  
+  display: flex;
+  justify-content: center;
 }
-
+label {
+  padding: 10px;
+  text-align: left;
+  min-width: 140px;
+}
 .textLeft {
   text-align: left;
 }
 .textRight {
   text-align: right;
 }
-input.textfield {
-  font-size: 16px;
-  width: 193px;
-  height:30px;
-  margin: 3px;
-  padding-left: 3px;
-  background-color:white;
-  border: 1px solid grey; 
-}
-.commentSection{
-  width:100%;
-    height:100%;
-    font-size: 16px;
- 
-}
-
-label{
-  height: 30px;
-  margin: 3px;
-}
-
-.select-wrapper{
-  width: 200px;
-  height: 30px;
-  margin: 3px;
-  background-color:white;
-  color: rgb(170, 170, 170);
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  border: 1px solid grey ;
- 
+input {
+  padding: 5px;
+  border: 1.9px solid grey;
+  border-radius: 3px;
 }
 .centeredText {
   display: block;
@@ -108,21 +67,15 @@ label{
   max-width: fit-content;
   padding: 5px;
 }
-button{
-border: none;
-color: white;
-padding: 15px 32px;
-text-align: center;
-text-decoration: none;
-display: inline-block;
-font-size: 16px;   
-  
+button {
+  padding: 15px;
+  border: none;
+  margin: 3px;
+  background-color: #0f7afe;
+  color: white;
 }
-button.grey{
-  background-color: rgb(146, 146, 146);
-}
-button.blue{
-  background-color: rgb(23, 120, 231);
+.goBackButton {
+  background-color: rgb(173, 173, 173);
 }
 hr {
   border: 1px dashed grey;
@@ -135,15 +88,11 @@ hr {
   border-radius: 7px;
   border: 2px solid lightgrey;
   padding: 10px;
-  margin: 20px auto;
 }
 p {
   margin: 0;
   padding: 10px;
   /* border: 1px solid black; */
-}
-li {
-  padding: 10px;
 }
 a {
   color: #0f7afe;
@@ -165,10 +114,9 @@ ul > li > a {
   border: 1px solid grey;
   width: 100%;
   margin: 0.2em 0em 0em 0em;
-  font-size: 16px;
 }
 .inlineButton {
-  background-color: rgb(146, 146, 146);
+  background-color: rgb(173, 173, 173);
   padding: 10px 50px;
   margin: 0.2em 0em 0em 4em;
 }
@@ -217,12 +165,21 @@ a:hover{
   font-size: smaller;
   display: none;
 }
+.open{
+  padding: 9px;
+  padding-bottom: 20px;
+  border: 1px solid grey;
+  width: 100%;
+  margin: 0.2em 0em 0em 0em;
+}
 #time{
   color: grey;
   float: right;
 }
-
 .time{
   color: grey;
   float: right;
+}
+li>a>p:hover{
+  background-color: rgb(235, 235, 235);
 }
