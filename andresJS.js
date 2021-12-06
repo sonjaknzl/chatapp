@@ -52,7 +52,7 @@ function getMessages(){
     };
 
     xmlhttp.send();
-    console.log("hi1");
+    
 }
 
 
