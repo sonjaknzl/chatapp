@@ -101,3 +101,34 @@ function sendMessage() {
   
 
 }
+
+var myModal = new bootstrap.Modal(document.getElementById('myModal'))
+
+while (modalContent.hasChildNodes()) {
+    modalContent.removeChild(modalContent.firstChild);
+};
+let modalChange = document.createElement("p");
+modalChange.textContent = "Do you really want to end your friendship?";
+modalContent.appendChild(modalChange);
+
+modalTitle.textContent = "Remove Tom as Friend";
+
+
+var modalBtn = document.getElementById("removeBtn");
+modalBtn.addEventListener("click", openModal);
+
+
+function openModal() {
+    console.log("modal opened");
+    myModal.show();
+};
+
+function closeModal() {
+    console.log("modal closed");
+    myModal.hide();
+};
+
+var saveExit = document.getElementById("remove");
+saveExit.addEventListener("click", ()=> {
+  window.open("friends.html","_top");
+});
