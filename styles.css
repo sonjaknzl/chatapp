@@ -83,12 +83,18 @@ hr {
   margin: 10px 0px;
 }
 .panel {
-  list-style-type: none;
-  background-color: white;
+  
+  height: 350px;
+  overflow: hidden;
+  background-color: rgb(255, 255, 255);
   border-radius: 7px;
   border: 2px solid lightgrey;
-  padding: 10px;
+  overflow-y:auto;
+  
 }
+
+
+
 p {
   margin: 0;
   padding: 10px;

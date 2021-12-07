@@ -47,6 +47,9 @@ function getMessages() {
           date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
         sTime.className = "time";
         pName.appendChild(sTime);
+
+        var targetDiv = document.querySelector(".panel");
+        targetDiv.scrollTop = targetDiv.scrollHeight;
       }
     }
   };
@@ -56,6 +59,8 @@ function getMessages() {
 
 var addButton = document.getElementById("Add");
 addButton.addEventListener("click", sendMessage);
+
+
 
 function sendMessage() {
   console.log("hi");
@@ -88,7 +93,11 @@ function sendMessage() {
     message: newMessage,
     to: "Jerry",
   };
+
+  
   let jsonString = JSON.stringify(data); // Serialize as JSON
   xmlhttp.send(jsonString); // Send JSON-data to server
-  window.setTimeout(getMessages(), 2000);
+  window.setTimeout(getMessages(), 1000);
+  
+
 }
