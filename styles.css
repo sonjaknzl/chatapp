@@ -86,11 +86,9 @@ hr {
   
   height: 350px;
   overflow: hidden;
-  background-color: rgb(255, 255, 255);
-  border-radius: 7px;
-  border: 2px solid lightgrey;
+  border-radius: 6px;
+  border: 1px solid lightgrey;
   overflow-y:auto;
-  
 }
 
 
