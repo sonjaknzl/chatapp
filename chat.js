@@ -5,25 +5,28 @@ window.chatCollectionId = "48b90830-5340-4e6b-9926-547d418282c8";
 window.chatServer = "https://online-lectures-cs.thi.de/chat";
 
 var chatUser = "/Jerry";
+
 getMessages();
 
+// Load messages from server
 function getMessages() {
   var chatField = document.getElementById("chatField");
   // console.log(chatField);
   while (chatField.hasChildNodes()) {
     chatField.removeChild(chatField.firstChild);
   }
-  
+
   var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open(
-      "GET",
-      "https://online-lectures-cs.thi.de/chat/1297cbf0-c3b0-4ddb-90c0-111f14039884/message/Jerry",
-      true
-    );
-    xmlhttp.setRequestHeader(
-      "Authorization",
-      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM3MjE5NzIzfQ.hntngevnKuPAGTKkeFwA2xuVIFBeRBNEVDnZv7vnpQE"
-    );
+  xmlhttp.open(
+    "GET",
+    "https://online-lectures-cs.thi.de/chat/1297cbf0-c3b0-4ddb-90c0-111f14039884/message/Jerry",
+    true
+  );
+
+  xmlhttp.setRequestHeader(
+    "Authorization",
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM3MjE5NzIzfQ.hntngevnKuPAGTKkeFwA2xuVIFBeRBNEVDnZv7vnpQE"
+  );
   // Chat Server URL und Collection ID als Teil der URL
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -57,11 +60,11 @@ function getMessages() {
   //   console.log("hi1");
 }
 
+// Set sent button as var
 var addButton = document.getElementById("Add");
 addButton.addEventListener("click", sendMessage);
 
-
-
+// Send message
 function sendMessage() {
   console.log("hi");
   let xmlhttp = new XMLHttpRequest();
@@ -70,16 +73,19 @@ function sendMessage() {
     "https://online-lectures-cs.thi.de/chat/d0238fc1-f40c-4d8d-a484-58efce0bb42c/message",
     true
   );
+
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 204) {
       console.log("done...");
     }
   };
+
   xmlhttp.open(
     "POST",
     "https://online-lectures-cs.thi.de/chat/1297cbf0-c3b0-4ddb-90c0-111f14039884/message",
     true
   );
+
   xmlhttp.setRequestHeader("Content-type", "application/json");
   // Add token, e. g., from Tom
   xmlhttp.setRequestHeader(
@@ -94,41 +100,45 @@ function sendMessage() {
     to: "Jerry",
   };
 
-  
   let jsonString = JSON.stringify(data); // Serialize as JSON
   xmlhttp.send(jsonString); // Send JSON-data to server
   window.setTimeout(getMessages(), 1000);
-  
-
 }
 
+// Set modal as var 
 var myModal = new bootstrap.Modal(document.getElementById('myModal'))
 
+// Remove existing child nodes
 while (modalContent.hasChildNodes()) {
-    modalContent.removeChild(modalContent.firstChild);
+  modalContent.removeChild(modalContent.firstChild);
 };
+
+// Change modal text Content
 let modalChange = document.createElement("p");
 modalChange.textContent = "Do you really want to end your friendship?";
 modalContent.appendChild(modalChange);
 
+// Change modal title
 modalTitle.textContent = "Remove Tom as Friend";
 
-
+// Set modal button as var
 var modalBtn = document.getElementById("removeBtn");
 modalBtn.addEventListener("click", openModal);
 
-
+// Open modal
 function openModal() {
-    console.log("modal opened");
-    myModal.show();
+  console.log("modal opened");
+  myModal.show();
 };
 
+// Close modal
 function closeModal() {
-    console.log("modal closed");
-    myModal.hide();
+  console.log("modal closed");
+  myModal.hide();
 };
 
+// Removing friend and open Friendslist
 var saveExit = document.getElementById("remove");
-saveExit.addEventListener("click", ()=> {
-  window.open("friends.html","_top");
+saveExit.addEventListener("click", () => {
+  window.open("friends.html", "_top");
 });
