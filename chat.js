@@ -36,6 +36,7 @@ function getMessages() {
 
         let pName = document.createElement("p");
         pName.textContent = element.from + ": ";
+        
         chatField.appendChild(pName);
 
         let sMessage = document.createElement("span");
@@ -60,13 +61,22 @@ function getMessages() {
   //   console.log("hi1");
 }
 
+
+
 // Set sent button as var
 var addButton = document.getElementById("Add");
 addButton.addEventListener("click", sendMessage);
 
+document.getElementById("newMessage").addEventListener ("keyup", (evt) => {
+	if (evt.key === "Enter") {
+		console.log ("Enter Key!");
+    sendMessage();
+	}
+});
+
 // Send message
 function sendMessage() {
-  console.log("hi");
+  console.log("send Message");
   let xmlhttp = new XMLHttpRequest();
   xmlhttp.open(
     "POST",
@@ -103,6 +113,8 @@ function sendMessage() {
   let jsonString = JSON.stringify(data); // Serialize as JSON
   xmlhttp.send(jsonString); // Send JSON-data to server
   window.setTimeout(getMessages(), 1000);
+
+  document.getElementById('newMessage').value = ''
 }
 
 // Set modal as var 

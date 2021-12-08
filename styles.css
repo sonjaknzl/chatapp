@@ -91,11 +91,9 @@ hr {
   overflow-y:auto;
 }
 
-
-
 p {
   margin: 0;
-  padding: 10px;
+  padding: 0px;
   /* border: 1px solid black; */
 }
 a {
