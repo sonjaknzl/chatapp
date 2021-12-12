@@ -2,42 +2,50 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+    <meta http-equiv="expires" content="01 Dec 2006 00:00:00 GMT">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Login</title>
   <link rel="stylesheet" href="./styles.css">
 
 </head>
 
 <body>
-  <img class="img-round" src="./images/chat.png" alt="image chat" />
-  <h1 class="centeredText">Please sign in</h1>
-  <form action="Login">
-    <fieldset class="smallLayout">
-      <legend>Login</legend>
-      <div class="form">
-        <p class="tablerow">
-          <label class="textRight" for="username">Username </label>
-          <input type="text" id="username" name="username" placeholder="Username" />
-        </p>
-        <p class="tablerow">
-          <label class="textRight" for="password">Password </label>
-          <input type="text" id="password" name="password" placeholder="Password" />
-        </p>
-      </div>
-    </fieldset>
-  </form>
+  <div class="section">
+    <img class="img-round" src="./images/chat.png" alt="image chat" />
+    <h1 class="centeredText">Please sign in</h1>
+    <form action="Login">
+      <fieldset class="smallLayout">
+        <legend>Login</legend>
+        <form  action='login.php' method='GET'>
 
-  <div class="buttonset">
-    <a href="register.html">
-      <button class="goBackButton">Register</button>
-    </a>
-    <a href="friends.html">
-      <button id="login" type="submit">Login</button>
-    </a>
+          
+          <div class="fieldItem">
+              <label for='usernameField'>Username</label>
+              <input class="textfield" type='text' id='usernameField' name='username' placeholder='Username' value="" required>
+          </div>
+
+          <div class="fieldItem">
+              <label for='passwordField'>Password</label>
+              <input class="textfield" type='text' id='passwordField' name='password' placeholder='Password' required>
+          </div>
+
+      </form>
+
+      </fieldset>
+    </form>
+
+    <div class="buttonset">
+      <a href="register.html">
+        <button class="grey">Register</button>
+      </a>
+      <a href="friends.html">
+        <button class="blue" id="login" type="submit">Login</button>
+      </a>
+    </div>
+    <script src="script.js"></script>
   </div>
-  <script src="script.js"></script>
 </body>
 
 </html>

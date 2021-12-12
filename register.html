@@ -12,35 +12,117 @@
 <body>
 
     <body>
-        <img class="img-round" src="./images/user.png" alt="image chat" />
-        <h1 class="centeredText">Register yourself</h1>
-        <form action="Register">
-            <fieldset class="smallLayout">
-                <legend>Register</legend>
-                <div class="form">
-                    <p class="tablerow">
-                        <label class="textRight" for="username">Username</label>
-                        <input type="text" id="username" name="username" placeholder="Username" />
-                    </p>
-                    <p class="tablerow">
-                        <label class="textRight" for="password">Password</label>
-                        <input type="text" id="password" name="password" placeholder="Password" />
-                    </p>
-                    <p class="tablerow">
-                        <label class="textRight" for="password2">Cornfirm Password</label>
-                        <input type="text" id="password2" name="password2" placeholder="Confirm Password" />
-                    </p>
-                </div>
-            </fieldset>
-        </form>
-        <div class="buttonset">
-            <a href="login.html">
-                <button class="goBackButton">Cancel</button>
-            </a>
-            <a href="friends.html">
-                <button>Create Account</button>
-            </a>
+        <div class="section">
+            <img class="img-round" src="./images/user.png" alt="image chat" />
+            <h1 class="centeredText">Register yourself</h1>
+            <form name="RegisterForm" action="friends.html" method="get">
+                <fieldset class="smallLayout">
+                    <legend>Register</legend>
+                    <div class="form">
+                        <div class="fieldItem">
+                            <label for="UsernameField">Username</label>
+                            <input class="textfield" type="text" id="usernameField" placeholder="Username">
+                        </div>
+                        <div class="fieldItem">
+                            <label for="passwordField1">Password</label>
+                            <input class="textfield" type="password" id="passwordField1" placeholder="Password">
+                        </div>
+                        <div class="fieldItem">
+                            <label for='passwordField2'>Confirm password</label>
+                            <input class="textfield" type="password" id="passwordField2" placeholder='Confirm Password'>
+                        </div>
+                        <div id="jstext"></div>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="buttonset">
+                <a href="login.html">
+                    <button class="grey">Cancel</button>
+                </a>
+
+                <button onclick="action()" class="blue">Create Account</button>
+
+            </div>
         </div>
+
+        <script>
+            window.chatToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVG9tIiwiaWF0IjoxNjM2NzA4OTM3fQ.W4b2-B_0DM4Y2qtmOD56pDO9JDmp0Z9d-Eu6aiqxB0w";
+            window.chatCollectionId = "48b90830-5340-4e6b-9926-547d418282c8";
+            window.chatServer = "https://online-lectures-cs.thi.de/chat";
+
+            var pcorr = false;
+
+            function action() {
+                const uname = document.getElementById("usernameField");
+                const pass1 = document.getElementById("passwordField1");
+                const pass2 = document.getElementById("passwordField2");
+                const element = document.getElementById("jstext");
+                element.innerText = "";
+
+                pass1.style.border = "1.9px solid grey";
+                pass2.style.border = "1.9px solid grey";
+                uname.style.border = "1.9px solid grey";
+
+                if (pass1.value.length < 8 || pass1.value.length < 8) {
+                    pass1.style.border = "1.9px solid firebrick";
+                    pass2.style.border = "1.9px solid firebrick";
+
+                    element.innerText = "Password must contain at least 8 characeters!";
+                    element.style.display = "block";
+                    element.style.float = "center";
+                    pcorr = false;
+                    return;
+
+                }
+                else if (pass1.value != pass2.value) {
+                    pass1.style.border = "1.9px solid firebrick";
+                    pass2.style.border = "1.9px solid firebrick";
+
+                    element.innerText = "Passwords do not match!";
+                    element.style.display = "block";
+                    element.style.float = "center";
+                    pcorr = false;
+                    return;
+
+                }
+                else {
+                    pcorr = true;
+                }
+                if (uname.value.length < 3) {
+                    console.log("error");
+                    element.innerText = "Username must contain at least 3 characeters!";
+                    element.style.float = "center";
+                    uname.style.border = "1.9px solid firebrick";
+                    return;
+                }
+                else {
+                    var xmlhttp = new XMLHttpRequest();
+                    const link = "https://online-lectures-cs.thi.de/chat/48b90830-5340-4e6b-9926-547d418282c8/user/" + uname.value;
+                    xmlhttp.open("GET", link, true);
+
+                    xmlhttp.onreadystatechange = function () {
+                        if (xmlhttp.readyState == 4) {
+                            if (xmlhttp.status == 204) {
+                                console.log("Exists");
+                                element.innerText = "Username already exists!";
+                                element.style.display = "block";
+                                uname.style.border = "1.9px solid firebrick";
+                                ucorr = false;
+                                return;
+
+                            } else if (xmlhttp.status == 404) {
+                                console.log("Does not exist");
+                                if (pcorr) {
+                                    document.forms["RegisterForm"].submit();
+                                }
+
+                            }
+                        }
+                    };
+                    xmlhttp.send();
+                }
+            }
+        </script>
     </body>
 
 </html>

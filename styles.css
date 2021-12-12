@@ -1,5 +1,5 @@
 body {
-  max-width: 900px;
+  margin-top: 50px;
   font-family: sans-serif;
   background-color: whitesmoke;
   box-sizing: border-box;
@@ -12,9 +12,11 @@ body {
   width: 150px;
 }
 .centeredForm {
+  max-width: 900px;
   display: block;
   width: min-content;
   margin: auto;
+  align-self: center;
 }
 fieldset {
   background-color: white;
@@ -30,19 +32,17 @@ fieldset {
   width: 100%;
 }
 .form {
-  text-align: center;
-  display: table;
   margin: auto;
   padding: 10px;
 }
 .tablerow {
-  display: table-row;
-  text-align: left;
+  display: flex;
+  justify-content: center;
 }
 label {
-  display: table-cell;
   padding: 10px;
   text-align: left;
+  min-width: 140px;
 }
 .textLeft {
   text-align: left;
@@ -51,8 +51,9 @@ label {
   text-align: right;
 }
 input {
-  display: table-cell;
   padding: 5px;
+  border: 1.9px solid grey;
+  border-radius: 3px;
 }
 .centeredText {
   display: block;
@@ -82,19 +83,18 @@ hr {
   margin: 10px 0px;
 }
 .panel {
-  list-style-type: none;
-  background-color: white;
-  border-radius: 7px;
-  border: 2px solid lightgrey;
-  padding: 10px;
+  
+  height: 350px;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid lightgrey;
+  overflow-y:auto;
 }
+
 p {
   margin: 0;
-  padding: 10px;
+  padding: 0px;
   /* border: 1px solid black; */
-}
-li {
-  padding: 10px;
 }
 a {
   color: #0f7afe;
@@ -162,4 +162,33 @@ select {
 }
 a:hover{
   color:darkblue;
+}
+.align_left{
+  justify-content: left;
+  align-items: center;
+  padding: 5px;
+}
+#jstext{
+  text-align: center;
+  color: grey;
+  font-size: smaller;
+  display: none;
+}
+.open{
+  padding: 9px;
+  padding-bottom: 20px;
+  border: 1px solid grey;
+  width: 100%;
+  margin: 0.2em 0em 0em 0em;
+}
+#time{
+  color: grey;
+  float: right;
+}
+.time{
+  color: grey;
+  float: right;
+}
+li>a>p:hover{
+  background-color: rgb(235, 235, 235);
 }
